@@ -1,0 +1,6 @@
+Faction discard Priority:
+1. Doesn't have "FSP revealed"
+2. Character card
+3. Strategy card
+4. Descending order of priority
+5. Doesn't place a tile

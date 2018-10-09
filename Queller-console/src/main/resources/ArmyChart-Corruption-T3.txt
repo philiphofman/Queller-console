@@ -1,0 +1,6 @@
+Priority:
+1. Target is in Gondor
+2. Target is Nation At War
+3. Attack would not move Nation to War
+4. Target in Active Nation
+5. Highest Value SP army.

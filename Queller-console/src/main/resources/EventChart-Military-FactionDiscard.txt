@@ -1,0 +1,3 @@
+Faction discard Priority:
+1. Faction not in play
+2. Card would have no effect

@@ -1,0 +1,6 @@
+Discard priority:
+1. Doesn't use the term "Fellowship revealed"
+2. Doesn't place a tile
+3. Strategy card
+4. Character card
+5. Descending order of priority

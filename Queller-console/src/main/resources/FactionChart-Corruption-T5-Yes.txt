@@ -1,0 +1,3 @@
+Destination Priority:
+1. Nearest aggressive or mobile army
+2. Highest value army

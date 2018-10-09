@@ -1,0 +1,4 @@
+Remove casualties:
+1. Maximize the effects of cards
+2. Maintain high army value with lowest number of units
+3. Keep at least 1 unit of each nation

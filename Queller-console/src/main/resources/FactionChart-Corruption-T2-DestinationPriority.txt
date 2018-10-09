@@ -1,0 +1,3 @@
+Destination Priority:
+1. Siege
+2. Highest value army

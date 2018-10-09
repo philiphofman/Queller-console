@@ -1,0 +1,8 @@
+Region Priority:
+1. Doesn't create threat
+2. Reduces distance to closest target or exposed
+3. Region that increases the number of mobile armies
+4. Region which increases the number of aggressive armies
+5. Settlement
+6. Region containing highest possible value SP army
+7. Region adjacent to highest possible value SP army

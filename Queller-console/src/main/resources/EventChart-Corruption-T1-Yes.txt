@@ -1,0 +1,5 @@
+Priority:
+1. Max cards allowed
+2. Character
+3. Faction
+4. Ascending order of initiative

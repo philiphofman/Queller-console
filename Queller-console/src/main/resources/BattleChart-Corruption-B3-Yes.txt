@@ -1,0 +1,7 @@
+Priority:
+1. Strategy card
+2. Durin's bane
+3. Character card
+4. Doesn't have "Fellowship revealed"
+5. Doesn't place a tile
+6. Ascending order of initiative

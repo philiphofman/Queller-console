@@ -1,0 +1,5 @@
+Priority:
+1. Decreases distance to closest target
+2. Closest target is part of a Nation At War
+3. Closest target is part of an active Nation
+4. Highest value SP army

@@ -1,0 +1,6 @@
+Mouth of Sauron movement priority:
+1. Leadership less than army units and 5
+2. Mobile army
+3. Aggressive army
+4. Army adjacent to target
+5. Can be reached on this die

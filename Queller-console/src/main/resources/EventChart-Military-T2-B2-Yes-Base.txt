@@ -1,0 +1,4 @@
+Priority:
+1. Full hand
+2. Character
+3. Ascending order of priority

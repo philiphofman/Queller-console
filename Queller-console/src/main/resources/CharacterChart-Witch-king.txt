@@ -1,0 +1,11 @@
+Witch-king placement priority:
+1. Army is aggressive
+2. Army becomes aggressive with Witch-king
+3. No Gandalf The White in opposing army
+4. No hobbits in opposing army
+5. Sieging
+6. Adjacent to threat
+7. Adjacent to target
+8. Army with shortest route to closest target of nation At War blocked by an FP army
+9. Mobile army
+10. Highest value SP army (no leadership bonus)

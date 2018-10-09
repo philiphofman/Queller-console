@@ -1,0 +1,3 @@
+Priority:
+1. Faction with most cards in hand and in play
+2. Faction with most Army cards in hand and in play

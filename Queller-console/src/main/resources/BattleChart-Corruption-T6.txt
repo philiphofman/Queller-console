@@ -1,0 +1,4 @@
+ANY condition true?
+1. Wins the game
+2. Decreases distant to closest target
+3. Negates threat

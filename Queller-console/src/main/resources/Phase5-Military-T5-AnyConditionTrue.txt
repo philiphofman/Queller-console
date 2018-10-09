@@ -1,0 +1,4 @@
+ANY Condition true:
+. Target provides enough VPs to win
+. Target is in Nation At War and not under siege
+. FSP in Mordor

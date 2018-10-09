@@ -1,0 +1,16 @@
+v1.2:
+- Added changelog to record the changes history
+- Fixed typos
+- Fixed Discarded dice not being reset after turn end
+- Adjusted Saved and Discarded dice to not show up (it was on only for purposes of testing)
+- Queller's terms are in UPPERCASE now
+- Actions are indicated by greater than and less than symbols >>> ACTION <<< now
+
+v1.1:
+- Fixed some bug that was consuming dice very wrongly
+- Fixed input validation for the Queller roll
+- Program is now case insensitive for inputs
+- Added Creative commons license
+
+v1.0:
+- First release

@@ -1,0 +1,6 @@
+Priority:
+1. Target in Nation not At War
+2. Highest value SP army
+3. Further target from any other mobile army
+4. Movement ends on a Settlement
+5. Movement ends on FSP

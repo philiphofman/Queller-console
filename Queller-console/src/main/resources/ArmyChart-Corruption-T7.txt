@@ -1,0 +1,7 @@
+Priority:
+1. Decrease distant to target
+2. Creates highest value army possible
+3. Final army becomes aggressive
+4. Moves furthest army from closest target 
+5. Least left-over units
+6. Destination contains Stronghold

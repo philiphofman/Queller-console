@@ -1,0 +1,6 @@
+Priority:
+1. Create highest army value possible
+2. Closest target has passive army adjacent
+3. Movement ends adjacent to another SP army
+4. Decreases distance to closest target
+5. Highest value SP army

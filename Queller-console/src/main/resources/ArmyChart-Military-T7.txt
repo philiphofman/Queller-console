@@ -1,0 +1,6 @@
+Priority:
+1. Engaged in a siege
+2. Decreases distance to closest target
+3. Closest target is part of a Nation At War
+4. Closest target is part of an Active Nation
+5. Highest value SP army

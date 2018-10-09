@@ -1,0 +1,6 @@
+Priority:
+1. Doesn't use the term "Fellowship revealed"
+2. Doesn't place a tile
+3. Character Card
+4. Strategy Card
+5. Descending order of priority

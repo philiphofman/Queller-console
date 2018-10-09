@@ -1,0 +1,4 @@
+Destination priority:
+1. FSP progress region (nearest Faction figure only)
+2. Nearest aggressive OR mobile army
+3. Highest value army

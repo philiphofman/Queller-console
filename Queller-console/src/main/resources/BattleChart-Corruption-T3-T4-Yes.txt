@@ -1,0 +1,5 @@
+Priority:
+1. Strategy card that cancels FP card
+2. Doesn't have "Fellowship revealed"
+3. Doesn't place a tile
+4. Ascending order of initiative on Character cards

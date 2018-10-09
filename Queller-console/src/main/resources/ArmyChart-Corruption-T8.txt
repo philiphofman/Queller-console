@@ -1,0 +1,7 @@
+Priority:
+1. Target is in Gondor
+2. Doesn't activate passive Nation
+3. By order of target priority
+4. Highest value SP army
+5. Doesn't block another mobile army's shortest route to their closest target
+6. FSP region

@@ -1,0 +1,4 @@
+Region Priority:
+1. Doesn't have "Fellowship revealed"
+2. Doesn't place a tile
+3. Ascending order of initiative

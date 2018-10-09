@@ -1,0 +1,14 @@
+Nazgûl placement priority:
+1. Leadership less than army units and 5
+2. Witch-king present
+3. Shadow Stronghold under siege
+4. Aggressive Shadow garrison
+5. One in FSP region
+6. Aggressive army
+7. Army becomes aggressive with Nazgûl
+8. Sieging
+9. Adjacent to threat
+10. Adjacent to target
+11. Army with shortest route to closest target of nation At War blocked by an FP army
+12. Mobile army
+13. Highest value SP army (no leadership bonus)
