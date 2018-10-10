@@ -1,9 +1,9 @@
 Nazgûl placement priority:
-1. Leadership less than army units and 5
-2. Witch-king present
-3. Shadow Stronghold under siege
-4. Aggressive Shadow garrison
-5. One in FSP region
+1. One in FSP region
+2. Leadership value less than army units and 5
+3. Witch-king present
+4. Shadow Stronghold under siege
+5. Aggressive Shadow garrison
 6. Aggressive army
 7. Army becomes aggressive with Nazgûl
 8. Sieging

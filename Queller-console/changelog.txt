@@ -1,3 +1,9 @@
+v1.3:
+- Fixed missing text for a certain action
+- Fixed typos
+- Changed Nazgûl placement priority for the special case of "Nazgûl Search" card.
+- Changed text of Character Chart from "Die has been used?" to "Were you able to move any Minion or Nazgûl?"?
+
 v1.2:
 - Added changelog to record the changes history
 - Fixed typos

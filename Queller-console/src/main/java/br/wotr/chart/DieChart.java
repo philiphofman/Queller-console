@@ -14,21 +14,19 @@ import br.wotr.util.MessageUtil;
 	 *	 F: Faction		 *
 	 * *******************/
 	//@formatter:on
-public abstract class Chart {
+public abstract class DieChart {
 	// TODO Z - Utilities in main AND here?
 	FileUtil fu = new FileUtil();
 	MessageUtil mu = new MessageUtil();
-	char strategy;
 	int entryPoint;
 	int trunk;
 	int branch;
 	String dieToUse;
 	String chartResult;
 
-	public String runChart(char strat, String die, int entry) {
+	public String runChart(String die, int entry) {
 		trunk = 1;
 		branch = 1;
-		strategy = strat;
 		dieToUse = die;
 		entryPoint = entry;
 		chartResult = null;
