@@ -23,6 +23,7 @@ Changelog
 
 v1.4:
 - Fixed a bug that tried to get a file and didn't find it
+- Added log file creation when an error occurs. You can send me this file so I can investigate the problem.
 
 v1.3:
 - Fixed missing text for a certain action
