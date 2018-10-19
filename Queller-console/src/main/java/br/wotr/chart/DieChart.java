@@ -22,10 +22,10 @@ public abstract class DieChart {
 	String chartResult;
 
 	public String runChart(String die, int entry) {
+		entryPoint = entry;
 		trunk = 1;
 		branch = 1;
 		dieToUse = die;
-		entryPoint = entry;
 		chartResult = null;
 		return "";
 	}

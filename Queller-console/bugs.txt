@@ -4,3 +4,5 @@ Holding playable Army Strategy Card? (y/n): n
 *** probably because of sc.nextInt()
 Military Victory for any side?
  (y/n):  (y/n): n
+
+*** imeplement error log

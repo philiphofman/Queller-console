@@ -73,16 +73,16 @@ public class MessageUtil {
 	}
 
 	public void printQuellerPool() {
-		m("Queller pool: " + DiceUtil.quellerDicePool);
+		m("Pool:  " + DiceUtil.quellerDicePool);
 	}
 
 	public void printQuellerStrategy(char s) {
-		m("Current strategy: " + getStrategyAsString(s));
+		m("Strategy: " + getStrategyAsString(s));
 	}
 
 	public void printSavedAndDiscardedDice() {
-		m("Saved:      " + DiceUtil.quellerDiceSaved);
-		m("Discarded:  " + DiceUtil.quellerDiceDiscarded);
+		m("Saved: " + DiceUtil.quellerDiceSaved);
+		m("Discarded: " + DiceUtil.quellerDiceDiscarded);
 	}
 
 	public void printTurnNumber(int turnNumber) {
@@ -91,6 +91,11 @@ public class MessageUtil {
 		m("----------");
 	}
 
+	public void printRollNotOk() {
+		a("Wrong format. Format: \"X X X X X\", where X is a die result");
+		q("What did Queller get? ");
+	}
+	
 	public void startingStrategy(char c) {
 		m("Starting Strategy: " + getStrategyAsString(c));
 	}

@@ -30,14 +30,23 @@ public class DiceUtil {
 		quellerDiceDiscarded.clear();
 	}
 
+	public static int rollD6() {
+		Random random = new Random();
+		return random.nextInt(6) + 1;
+	}
+
 	public static void saveDie(String die) {
 		quellerDicePool.remove(die);
 		quellerDiceSaved.add(die);
 	}
 
-	public static int rollD6() {
-		Random random = new Random();
-		return random.nextInt(6) + 1;
+	public static void setQuellerRoll(String s) {
+		String[] roll = s.split(" ");
+		for (String dieFace : roll) {
+			if (!dieFace.equals("E")) {
+				quellerDicePool.add(dieFace);
+			}
+		}
 	}
 
 	public static boolean betweenOneAndThree(int number) {
@@ -55,15 +64,6 @@ public class DiceUtil {
 		return quellerDiceSaved.isEmpty();
 	}
 
-	public static char initialStrategy() {
-		int die = rollD6();
-		if (betweenOneAndThree(die)) {
-			return 'c';
-		} else {
-			return 'm';
-		}
-	}
-
 	public static boolean hasDie() {
 		if (!(quellerDicePool.isEmpty() && quellerDiceSaved.isEmpty())) {
 			return true;
@@ -79,12 +79,12 @@ public class DiceUtil {
 		return quellerDiceSaved.contains(dieFace);
 	}
 
-	public static void setQuellerRoll(String s) {
-		String[] roll = s.split(" ");
-		for (String dieFace : roll) {
-			if (!dieFace.equals("E")) {
-				quellerDicePool.add(dieFace);
-			}
+	public static char initialStrategy() {
+		int die = rollD6();
+		if (betweenOneAndThree(die)) {
+			return 'c';
+		} else {
+			return 'm';
 		}
 	}
 

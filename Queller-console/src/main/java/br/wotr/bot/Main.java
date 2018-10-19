@@ -65,8 +65,6 @@ public class Main {
 	static int quellerRings = 0;
 	static String mostCommonDie = "";
 	// constants for Chart names
-	// TODO Z - Remove these later and infer diechart and die to use with action
-	// text
 	final static String aChart = "Army";
 	final static String bChart = "Battle";
 	final static String cChart = "Character";
@@ -88,7 +86,7 @@ public class Main {
 		// baseGame = false;
 		// }
 
-		strategy = DiceUtil.initialStrategy();
+		// strategy = DiceUtil.initialStrategy();
 		mu.startingStrategy(strategy);
 		do {
 			mu.printTurnNumber(++turnCount);
@@ -135,7 +133,7 @@ public class Main {
 					trunk = 2;
 				}
 			}
-			// Warriors of the Middle Earth expansion
+			// Warriors of the Middle-Earth expansion
 			if (trunk == 2) {
 				mu.q("Over 4 Faction cards?");
 				if (yes()) {
@@ -154,7 +152,7 @@ public class Main {
 					trunk = 2;
 				}
 			}
-			// Warriors of the Middle Earth expansion
+			// Warriors of the Middle-Earth expansion
 			if (trunk == 2) {
 				mu.q("Over 4 faction cards?");
 				if (yes()) {
@@ -208,11 +206,6 @@ public class Main {
 		int eyeAmount = 0;
 
 		switch (strategy) {
-		// @formatter:off
-		/*
-		 * ******************** Phase 3 Corruption |
-		 *********************/
-		// @formatter:on
 		case 'c':
 			if (trunk == 1) {
 				mu.q("FSP at Rivendell AND Progress = 0?");
@@ -223,36 +216,32 @@ public class Main {
 						eyeAmount = 1;
 					}
 					break;
-				} else {
-					trunk = 2;
 				}
+				trunk = 2;
 			}
 			if (trunk == 2) {
 				mu.q("FSP in Mordor?");
 				if (yes()) {
 					eyeAmount = 8;
 					break;
-				} else {
-					trunk = 3;
 				}
+				trunk = 3;
 			}
 			if (trunk == 3) {
-				mu.q("Queller has 7 dice OR AGGRESSIVE army adjacent to TARGET which would win the game?");
+				mu.q("Queller has only 7 dice OR AGGRESSIVE army adjacent to TARGET which would win the game?");
 				if (yes()) {
 					eyeAmount = 1;
 					break;
-				} else {
-					trunk = 4;
 				}
+				trunk = 4;
 			}
 			if (trunk == 4) {
 				mu.q("FSP progress > 5?");
 				if (yes()) {
 					eyeAmount = 2;
 					break;
-				} else {
-					trunk = 5;
 				}
+				trunk = 5;
 			}
 			if (trunk == 5) {
 				mu.q("FSP shortest route leads via a SP Stronghold AND They are within 2 progress of it or have passed it?");
@@ -261,38 +250,29 @@ public class Main {
 				} else {
 					eyeAmount = 1;
 				}
-				break;
 			}
 			break;
-		// @formatter:off
-		/*
-		 * ****************** Phase 3 Military |
-		 *******************/
-		// @formatter:on
 		case 'm':
 			if (trunk == 1) {
 				mu.q("FSP in Mordor?");
 				if (yes()) {
 					eyeAmount = 8;
 					break;
-				} else {
-					trunk = 2;
 				}
+				trunk = 2;
 			}
 			if (trunk == 2) {
 				mu.q("FSP progress > 5?");
 				if (yes()) {
 					eyeAmount = 2;
 					break;
-				} else {
-					trunk = 3;
 				}
+				trunk = 3;
 			}
 			if (trunk == 3) {
 				mu.q("FSP in Rivendell AND Progress = 0?");
 				if (yes()) {
 					eyeAmount = 0;
-					break;
 				} else {
 					eyeAmount = 1;
 				}
@@ -317,9 +297,7 @@ public class Main {
 		// FileUtil.toLog(spRoll + "\n");
 		spRoll = spRoll.trim().toUpperCase();
 		while (!rollIsOk(spRoll)) {
-			mu.a("Wrong format. Make sure it's something like X X X X X");
-			mu.a("One die result followed by a space, followed by result, etc.");
-			mu.q("What did Queller get? ");
+			mu.printRollNotOk();
 			spRoll = sc.nextLine();
 			// FileUtil.toLog(spRoll + "\n");
 			spRoll = spRoll.trim().toUpperCase();
@@ -345,8 +323,6 @@ public class Main {
 		mu.printPhaseHeader(5);
 		mu.printQuellerStrategy(strategy);
 		mu.printQuellerPool();
-
-		// TODO T - Saved and Discarded dice
 		mu.printSavedAndDiscardedDice();
 
 		while (!wasUsed(result)) {
@@ -386,11 +362,11 @@ public class Main {
 					if (branch == 1) {
 						mu.q("AGGRESSIVE army adjacent to THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getAttackcdie(), "C", bChart, 1);
+							result = performAction(ConstantUtil.getAttackcdie(), "C", bChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							}
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -402,9 +378,9 @@ public class Main {
 					}
 					// Phase 5 Corruption
 					if (branch == 2) {
-						mu.q("Move will create AGGRESSIVE army adjacent to THREAT?");
+						mu.q("Move can create AGGRESSIVE army adjacent to THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -416,9 +392,9 @@ public class Main {
 					}
 					// Phase 5 Corruption
 					if (branch == 3) {
-						mu.q("Move will increase army in Stronghold under THREAT?");
+						mu.q("Move can increase army in Stronghold under THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -432,7 +408,7 @@ public class Main {
 					if (branch == 4) {
 						mu.q("MOBILE army's route to closest TARGET takes it towards THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -446,7 +422,7 @@ public class Main {
 					if (branch == 5) {
 						mu.q("Can move towards EXPOSED?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -460,7 +436,7 @@ public class Main {
 					if (branch == 6) {
 						mu.q("Can muster in Stronghold under THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getMuster(), "M", mChart, 1);
+							result = performAction(ConstantUtil.getMuster(), "M", mChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							}
@@ -471,7 +447,7 @@ public class Main {
 					if (branch == 7) {
 						mu.q("THREAT is sieging an SP Stronghold which can use more leadership?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getCharacter2(), "C", cChart, 2);
+							result = performAction(ConstantUtil.getCharacter2(), "C", cChart, 2, true);
 							if (wasUsed(result)) {
 								continue;
 							}
@@ -484,7 +460,7 @@ public class Main {
 			if (trunk == 2) {
 				mu.q("A MOBILE Minion is in a PASSIVE army against all adjacent At War armies?");
 				if (yes()) {
-					result = performAction(ConstantUtil.getCharacter2(), "C", cChart, 2);
+					result = performAction(ConstantUtil.getCharacter2(), "C", cChart, 2, true);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -493,19 +469,18 @@ public class Main {
 			}
 			// Phase 5 Corruption
 			if (trunk == 3) {
-				mu.q("FSP in Mordor or revealed AND Character cards > 0?");
+				mu.q("Character cards > 0 AND FSP in Mordor or revealed?");
 				if (yes()) {
 					branch = 1;
 					if (branch == 1) {
 						mu.q("Holding \"FSP revealed\" Character card?");
 						if (yes()) {
-							mu.a("Play Card using C die");
-							result = performAction(ConstantUtil.getPlaycardcdie(), "C", eChart, 1);
+							result = performAction(ConstantUtil.getPlaycardcdie(), "C", eChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							}
 						}
-						result = performAction(ConstantUtil.getEvent2(), "P", eChart, 2);
+						result = performAction(ConstantUtil.getEvent2(), "P", eChart, 2, true);
 						if (wasUsed(result)) {
 							continue;
 						}
@@ -517,7 +492,7 @@ public class Main {
 			if (trunk == 4) {
 				mu.q("FSP in region free for Nazgûl with 0 Nazgûl?");
 				if (yes()) {
-					result = performAction(ConstantUtil.getCharacter2(), "C", cChart, 2);
+					result = performAction(ConstantUtil.getCharacter2(), "C", cChart, 2, false);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -526,13 +501,20 @@ public class Main {
 			}
 			// Phase 5 Corruption
 			if (trunk == 5) {
+				mu.q("Can muster Minion?");
+				if (yes()) {
+					result = performAction(ConstantUtil.getMuster(), "M", mChart, 1, true);
+					if (wasUsed(result)) {
+						continue;
+					}
+				}
 				if (baseGame) {
-					mu.q("Can muster Minion OR S&E not At War?");
+					mu.q("S&E not At War?");
 				} else {
-					mu.q("Can muster Minion OR S&E not At War OR No Faction recruited?");
+					mu.q("S&E not At War OR No Faction recruited?");
 				}
 				if (yes()) {
-					result = performAction(ConstantUtil.getMuster(), "M", mChart, 1);
+					result = performAction(ConstantUtil.getMuster(), "M", mChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -543,13 +525,24 @@ public class Main {
 			if (trunk == 6) {
 				mu.q("AGGRESSIVE army adjacent to TARGET?");
 				if (yes()) {
-					mu.q("FSP in Mordor OR TARGET would win the game OR TARGET not under siege and in a Nation At War?");
+					mu.q("FSP in Mordor OR TARGET would win the game?");
 					if (yes()) {
-						result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1);
+						result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1, true);
 						if (wasUsed(result)) {
 							continue;
 						}
-						result = performAction(ConstantUtil.getArmy2(), "A", aChart, 2);
+						result = performAction(ConstantUtil.getArmy2(), "A", aChart, 2, true);
+						if (wasUsed(result)) {
+							continue;
+						}
+					}
+					mu.q("TARGET not under siege and in a Nation At War?");
+					if (yes()) {
+						result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1, false);
+						if (wasUsed(result)) {
+							continue;
+						}
+						result = performAction(ConstantUtil.getArmy2(), "A", aChart, 2, false);
 						if (wasUsed(result)) {
 							continue;
 						}
@@ -568,11 +561,11 @@ public class Main {
 			if (trunk == 7) {
 				mu.q("Playable Character cards?");
 				if (yes()) {
-					result = performAction(ConstantUtil.getEventcdie(), "C", eChart, 1);
+					result = performAction(ConstantUtil.getEventcdie(), "C", eChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
-					result = performAction(ConstantUtil.getEvent(), "P", eChart, 1);
+					result = performAction(ConstantUtil.getEvent(), "P", eChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -583,11 +576,11 @@ public class Main {
 			if (trunk == 8) {
 				mu.q("AGGRESSIVE army adjacent to TARGET not under siege?");
 				if (yes()) {
-					result = performAction(ConstantUtil.getAttackcdie(), "C", bChart, 1);
+					result = performAction(ConstantUtil.getAttackcdie(), "C", bChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
-					result = performAction(ConstantUtil.getArmy2(), "A", aChart, 2);
+					result = performAction(ConstantUtil.getArmy2(), "A", aChart, 2, false);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -599,42 +592,42 @@ public class Main {
 				if (!baseGame) {
 					mu.q("All factions in play?");
 					if (!yes()) {
-						result = performAction(ConstantUtil.getRecruitfaction(), "M", fChart, 4);
+						result = performAction(ConstantUtil.getRecruitfaction(), "M", fChart, 4, false);
 						if (wasUsed(result)) {
 							continue;
 						}
 					}
-					result = performAction(ConstantUtil.getPlayfactionevent(), "P", fChart, 1);
+					result = performAction(ConstantUtil.getPlayfactionevent(), "P", fChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
 				}
 				// Phase 5 Corruption
-				result = performAction(ConstantUtil.getEvent(), "P", eChart, 1);
+				result = performAction(ConstantUtil.getEvent(), "P", eChart, 1, false);
 				if (wasUsed(result)) {
 					continue;
 				}
-				result = performAction(ConstantUtil.getArmy3(), "A", aChart, 3);
+				result = performAction(ConstantUtil.getArmy3(), "A", aChart, 3, false);
 				if (wasUsed(result)) {
 					continue;
 				}
-				result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1);
+				result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1, false);
 				if (wasUsed(result)) {
 					continue;
 				}
 				if (!baseGame) {
-					result = performAction(ConstantUtil.getRecruitfaction(), "M", fChart, 4);
+					result = performAction(ConstantUtil.getRecruitfaction(), "M", fChart, 4, false);
 					if (wasUsed(result)) {
 						continue;
 					}
 				}
 				// Phase 5 Corruption
-				result = performAction(ConstantUtil.getMuster(), "M", mChart, 1);
+				result = performAction(ConstantUtil.getMuster(), "M", mChart, 1, false);
 				if (wasUsed(result)) {
 					continue;
 				}
 				if (!baseGame) {
-					result = performAction(ConstantUtil.getDrawfactionevent(), "P", fChart, 2);
+					result = performAction(ConstantUtil.getDrawfactionevent(), "P", fChart, 2, false);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -721,11 +714,11 @@ public class Main {
 					if (branch == 1) {
 						mu.q("AGGRESSIVE army adjacent to THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getAttackcdie(), "C", bChart, 1);
+							result = performAction(ConstantUtil.getAttackcdie(), "C", bChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							}
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -739,7 +732,7 @@ public class Main {
 					if (branch == 2) {
 						mu.q("Move will create AGGRESSIVE army adjacent to THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -753,7 +746,7 @@ public class Main {
 					if (branch == 3) {
 						mu.q("Move will increase army in Stronghold under THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -767,7 +760,7 @@ public class Main {
 					if (branch == 4) {
 						mu.q("MOBILE army's route to closest TARGET takes it towards THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -781,7 +774,7 @@ public class Main {
 					if (branch == 5) {
 						mu.q("Can move towards EXPOSED?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1);
+							result = performAction(ConstantUtil.getArmy(), "A", aChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							} else {
@@ -795,7 +788,7 @@ public class Main {
 					if (branch == 6) {
 						mu.q("Can muster in Stronghold under THREAT?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getMuster(), "M", mChart, 1);
+							result = performAction(ConstantUtil.getMuster(), "M", mChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							}
@@ -806,7 +799,7 @@ public class Main {
 					if (branch == 7) {
 						mu.q("THREAT is sieging an SP Stronghold which can use more leadership?");
 						if (yes()) {
-							result = performAction("Character", "C", cChart, 1);
+							result = performAction("Character", "C", cChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							}
@@ -819,7 +812,7 @@ public class Main {
 			if (trunk == 2) {
 				mu.q("A MOBILE minion is in a PASSIVE army against all adjacent At War armies?");
 				if (yes()) {
-					result = performAction(ConstantUtil.getCharacter2(), "C", cChart, 2);
+					result = performAction(ConstantUtil.getCharacter2(), "C", cChart, 2, true);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -828,13 +821,20 @@ public class Main {
 			}
 			// Phase 5 Military
 			if (trunk == 3) {
+				mu.q("Can muster Minion?");
+				if (yes()) {
+					result = performAction(ConstantUtil.getMuster(), "M", mChart, 1, true);
+					if (wasUsed(result)) {
+						continue;
+					}
+				}
 				if (baseGame) {
-					mu.q("Can muster Minion OR S&E not At War?");
+					mu.q("S&E not At War?");
 				} else {
-					mu.q("Can muster Minion OR S&E not At War OR No Faction recruited?");
+					mu.q("S&E not At War OR No Faction recruited?");
 				}
 				if (yes()) {
-					result = performAction(ConstantUtil.getMuster(), "M", mChart, 1);
+					result = performAction(ConstantUtil.getMuster(), "M", mChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -843,17 +843,17 @@ public class Main {
 			}
 			// Phase 5 Military
 			if (trunk == 4) {
-				mu.q("FSP in Mordor or revealed AND Character cards > 0?");
+				mu.q("Character cards > 0 AND FSP in Mordor or revealed?");
 				if (yes()) {
 					branch = 1;
 					if (branch == 1) {
 						mu.q("Holding \"FSP revealed\" Character card?");
 						if (yes()) {
-							result = performAction(ConstantUtil.getPlaycardcdie(), "C", eChart, 1);
+							result = performAction(ConstantUtil.getPlaycardcdie(), "C", eChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							}
-							result = performAction(ConstantUtil.getPlaycardpdie(), "P", eChart, 1);
+							result = performAction(ConstantUtil.getPlaycardpdie(), "P", eChart, 1, true);
 							if (wasUsed(result)) {
 								continue;
 							}
@@ -869,11 +869,11 @@ public class Main {
 					mu.printPriorities(ConstantUtil.getFp5mt5any());
 					mu.q("Are any of these true?");
 					if (yes()) {
-						result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1);
+						result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1, false);
 						if (wasUsed(result)) {
 							continue;
 						}
-						result = performAction(ConstantUtil.getAttackadie(), "A", aChart, 1);
+						result = performAction(ConstantUtil.getAttackadie(), "A", aChart, 1, false);
 						if (wasUsed(result)) {
 							continue;
 						}
@@ -885,11 +885,11 @@ public class Main {
 			if (trunk == 6) {
 				mu.q("Playable Strategy Cards?");
 				if (yes()) {
-					result = performAction(ConstantUtil.getEventmdie(), "M", eChart, 1);
+					result = performAction(ConstantUtil.getEventmdie(), "M", eChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
-					result = performAction(ConstantUtil.getEventadie(), "A", eChart, 1);
+					result = performAction(ConstantUtil.getEventadie(), "A", eChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -901,12 +901,12 @@ public class Main {
 					continue;
 				}
 				if (!baseGame) {
-					result = performAction(ConstantUtil.getPlayfactionevent(), "P", fChart, 1);
+					result = performAction(ConstantUtil.getPlayfactionevent(), "P", fChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
 				}
-				result = performAction(ConstantUtil.getEvent(), "P", eChart, 1);
+				result = performAction(ConstantUtil.getEvent(), "P", eChart, 1, false);
 				if (wasUsed(result)) {
 					continue;
 				}
@@ -916,32 +916,32 @@ public class Main {
 			if (trunk == 7) {
 				mu.q("AGGRESSIVE army adjacent to TARGET?");
 				if (yes()) {
-					result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1);
+					result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1, false);
 					if (wasUsed(result)) {
 						continue;
 					}
 				}
-				result = performAction(ConstantUtil.getArmy2(), "A", aChart, 2);
+				result = performAction(ConstantUtil.getArmy2(), "A", aChart, 2, false);
 				if (wasUsed(result)) {
 					continue;
 				}
-				result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1);
+				result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1, false);
 				if (wasUsed(result)) {
 					continue;
 				}
 				// Phase 5 Military
 				if (!baseGame) {
-					result = performAction(ConstantUtil.getRecruitfaction(), "M", fChart, 4);
+					result = performAction(ConstantUtil.getRecruitfaction(), "M", fChart, 4, false);
 					if (wasUsed(result)) {
 						continue;
 					}
 				}
-				result = performAction(ConstantUtil.getMuster(), "M", mChart, 1);
+				result = performAction(ConstantUtil.getMuster(), "M", mChart, 1, false);
 				if (wasUsed(result)) {
 					continue;
 				}
 				if (!baseGame) {
-					result = performAction(ConstantUtil.getDrawfactionevent(), "P", fChart, 2);
+					result = performAction(ConstantUtil.getDrawfactionevent(), "P", fChart, 2, false);
 					if (wasUsed(result)) {
 						continue;
 					}
@@ -1083,9 +1083,13 @@ public class Main {
 	 *         to die selection at the point where it came in Phase 5.
 	 * 
 	 */
-	public static String performAction(String action, String die, String chart, int entry) {
+	public static String performAction(String action, String die, String chart, int entry, boolean useRing) {
 		String chartResult = "not used";
 		String dieToUse = null;
+
+		// TODO infer die, chart, entry
+		// method: informations[] = getChartRunningInfo
+		// die = informations[0]
 
 		if (DiceUtil.hasDie()) {
 			if (DiceUtil.poolIsEmpty()) {
@@ -1097,28 +1101,57 @@ public class Main {
 				} else {
 					if (DiceUtil.isInPool(die)) {
 						dieToUse = die;
+					} else {
+						if (useRing) {
+							mu.m("You don't have the " + die + " die");
+							mu.q("Does Queller have a Ring?");
+							if (yes()) {
+								// Priority to transform die with ring
+								if (DiceUtil.isInPool("P")) {
+									dieToUse = "P";
+								} else {
+									if (DiceUtil.isInPool(mostCommonDie)) {
+										dieToUse = mostCommonDie;
+									} else {
+										if (DiceUtil.isInPool("M")) {
+											dieToUse = "M";
+										} else {
+											if (DiceUtil.isInPool("A")) {
+												dieToUse = "A";
+											} else {
+												if (DiceUtil.isInPool("H")) {
+													dieToUse = "H";
+												} else {
+													dieToUse = "C";
+												}
+											}
+										}
+									}
+								}
+								mu.a("Change " + dieToUse + " die to " + die + " die using a ring");
+							}
+						}
 					}
 				}
 			}
 		}
-
-		// TODO T - Print action before chart call
-		// mu.a("Trying to perform: " + action);
-		// mu.a("Using this die: " + dieToUse);
 		if (dieToUse != null) {
+			// chart = informations[1]
+			// entry = entry [2]
 			switch (strategy) {
 
+			// Corruption charts
 			case 'c':
 				switch (chart) {
 				case "Army":
 					chartResult = armyChartC.runChart(dieToUse, entry);
 					if (!wasUsed(chartResult)) {
 						if (chartResult.equals(ConstantUtil.getAttack())) {
-							chartResult = performAction(ConstantUtil.getAttack(), dieToUse, bChart, 1);
+							chartResult = performAction(ConstantUtil.getAttack(), dieToUse, bChart, 1, false);
 						}
 						if (chartResult.equals(ConstantUtil.getMove())) {
 							mu.a("Move 2nd time");
-							chartResult = performAction(ConstantUtil.getMove(), dieToUse, aChart, 1);
+							chartResult = performAction(ConstantUtil.getMove(), dieToUse, aChart, 1, false);
 						}
 					}
 					break;
@@ -1130,13 +1163,13 @@ public class Main {
 					chartResult = characterChartC.runChart(dieToUse, entry);
 					if (!wasUsed(chartResult)) {
 						if (chartResult.equals(ConstantUtil.getAttack())) {
-							chartResult = performAction(ConstantUtil.getAttack(), dieToUse, bChart, 1);
+							chartResult = performAction(ConstantUtil.getAttack(), dieToUse, bChart, 1, false);
 						}
 						if (chartResult.equals(ConstantUtil.getArmy4())) {
-							chartResult = performAction(ConstantUtil.getArmy4(), dieToUse, aChart, 4);
+							chartResult = performAction(ConstantUtil.getArmy4(), dieToUse, aChart, 4, false);
 						}
 						if (chartResult.equals(ConstantUtil.getEventcdie())) {
-							chartResult = performAction(ConstantUtil.getEventcdie(), dieToUse, eChart, 1);
+							chartResult = performAction(ConstantUtil.getEventcdie(), dieToUse, eChart, 1, false);
 						}
 					}
 					break;
@@ -1150,7 +1183,7 @@ public class Main {
 					chartResult = musterChartC.runChart(dieToUse, entry);
 					if (!wasUsed(chartResult)) {
 						if (chartResult.equals(ConstantUtil.getRecruitfaction())) {
-							chartResult = performAction(ConstantUtil.getRecruitfaction(), dieToUse, fChart, 4);
+							chartResult = performAction(ConstantUtil.getRecruitfaction(), dieToUse, fChart, 4, false);
 						}
 					}
 					break;
@@ -1158,18 +1191,18 @@ public class Main {
 					break;
 				}
 				break;
-
+			// Military charts
 			case 'm':
 				switch (chart) {
 				case "Army":
 					chartResult = armyChartM.runChart(dieToUse, entry);
 					if (!wasUsed(chartResult)) {
 						if (chartResult.equals(ConstantUtil.getAttack())) {
-							chartResult = performAction(ConstantUtil.getAttack(), dieToUse, bChart, 1);
+							chartResult = performAction(ConstantUtil.getAttack(), dieToUse, bChart, 1, false);
 						}
 						if (chartResult.equals(ConstantUtil.getMove())) {
 							mu.a("Move 2nd time");
-							chartResult = performAction(ConstantUtil.getMove(), dieToUse, aChart, 1);
+							chartResult = performAction(ConstantUtil.getMove(), dieToUse, aChart, 1, false);
 						}
 					}
 					break;
@@ -1181,13 +1214,13 @@ public class Main {
 					chartResult = characterChartM.runChart(dieToUse, entry);
 					if (!wasUsed(chartResult)) {
 						if (chartResult.equals(ConstantUtil.getAttack())) {
-							chartResult = performAction(ConstantUtil.getAttack(), dieToUse, bChart, 1);
+							chartResult = performAction(ConstantUtil.getAttack(), dieToUse, bChart, 1, false);
 						}
 						if (chartResult.equals(ConstantUtil.getArmy3())) {
-							chartResult = performAction(ConstantUtil.getArmy3(), dieToUse, aChart, 3);
+							chartResult = performAction(ConstantUtil.getArmy3(), dieToUse, aChart, 3, false);
 						}
 						if (chartResult.equals(ConstantUtil.getEventcdie())) {
-							chartResult = performAction(ConstantUtil.getEventcdie(), dieToUse, eChart, 1);
+							chartResult = performAction(ConstantUtil.getEventcdie(), dieToUse, eChart, 1, false);
 						}
 					}
 					break;
@@ -1201,17 +1234,14 @@ public class Main {
 					chartResult = musterChartM.runChart(dieToUse, entry);
 					if (!wasUsed(chartResult)) {
 						if (chartResult.equals(ConstantUtil.getRecruitfaction())) {
-							chartResult = performAction(ConstantUtil.getRecruitfaction(), dieToUse, fChart, 4);
+							chartResult = performAction(ConstantUtil.getRecruitfaction(), dieToUse, fChart, 4, false);
 						}
 					}
 					break;
 				default:
 					break;
-				} // switch military charts
-			} // switch strategy
-		} else {
-			// TODO T - Die not available
-			// mu.m("*** Die not available ***");
+				}
+			}
 		}
 		return chartResult;
 	}

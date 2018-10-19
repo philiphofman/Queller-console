@@ -61,8 +61,7 @@ public class ConstantUtil {
 	// file name constants. follow formula fxcytz(bw)r for charts
 	// where x is the chart name, y the strategy and z the trunk number, w is the
 	// branch number, if present. r is the response to the question 'y' or 'n',
-	// where there is difference
-	// for phases fpxytzbw, x is the phase number
+	// where there is difference. for phases fpxytzbw, x is the phase number
 	private final static String facct10 = "ArmyChart-Corruption-T10";
 	private final static String facct3 = "ArmyChart-Corruption-T3";
 	private final static String facct7 = "ArmyChart-Corruption-T7";
