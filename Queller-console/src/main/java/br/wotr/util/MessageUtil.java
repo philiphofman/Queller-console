@@ -69,7 +69,7 @@ public class MessageUtil {
 	}
 
 	public void printPriorities(String filename) {
-		m(FileUtil.getContents(filename));
+		m(FileUtil.getContent(filename));
 	}
 
 	public void printQuellerPool() {
@@ -95,7 +95,7 @@ public class MessageUtil {
 		a("Wrong format. Format: \"X X X X X\", where X is a die result");
 		q("What did Queller get? ");
 	}
-	
+
 	public void startingStrategy(char c) {
 		m("Starting Strategy: " + getStrategyAsString(c));
 	}

@@ -85,7 +85,8 @@ public class Main {
 		// if (yes()) {
 		// baseGame = false;
 		// }
-
+		
+		// TODO A-HERE UNCOMMMENT BEFORE RELEASE!
 		// strategy = DiceUtil.initialStrategy();
 		mu.startingStrategy(strategy);
 		do {
@@ -106,7 +107,7 @@ public class Main {
 		} while (!gameover);
 		mu.a("Game over.");
 		sc.close();
-//		FileUtil.closeBW();
+		FileUtil.closeLogfile();
 	}
 
 	/**
