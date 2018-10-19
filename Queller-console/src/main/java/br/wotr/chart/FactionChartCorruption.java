@@ -94,7 +94,7 @@ public class FactionChartCorruption extends DieChart {
 			}
 		}
 
-		// Corruption - Verify which actions consume the die
+		// Verify which actions consume the die
 		if (chartResult.equals(ConstantUtil.getDrawfactioncard())) {
 			mu.q("Over 4 Faction Cards?");
 			if (Main.yes()) {

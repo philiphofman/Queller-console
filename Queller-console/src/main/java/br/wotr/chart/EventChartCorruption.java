@@ -98,7 +98,7 @@ public class EventChartCorruption extends DieChart {
 			}
 		}
 
-		// Corruption - Verify which actions consume the die
+		// Verify which actions consume the die
 		if (chartResult.equals(ConstantUtil.getDrawstrategycard())) {
 			mu.q("Over 6 Event cards?");
 			if (Main.yes()) {

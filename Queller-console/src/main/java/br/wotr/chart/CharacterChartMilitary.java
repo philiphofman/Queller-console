@@ -53,7 +53,7 @@ public class CharacterChartMilitary extends DieChart {
 			if (trunk == 2) {
 				mu.q("Army AGGRESSIVE AND Has Witch-king or Max. possible leadership?");
 				if (Main.yes()) {
-					chartResult = mu.a(ConstantUtil.getAttack());
+					chartResult = ConstantUtil.getAttack();
 					continue;
 				}
 				trunk = 3;
@@ -66,10 +66,9 @@ public class CharacterChartMilitary extends DieChart {
 				}
 				chartResult = mu.a(ConstantUtil.getEventcdie());
 			}
-
 		}
 
-		// Military - Verify which actions consume the die
+		// Verify which actions consume the die
 		if (chartResult.equals(ConstantUtil.getMoveminionsandnazgul())) {
 			chartResult = DiceUtil.useDie(dieToUse);
 		}

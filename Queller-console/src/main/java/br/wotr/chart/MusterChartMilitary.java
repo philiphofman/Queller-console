@@ -136,7 +136,7 @@ public class MusterChartMilitary extends DieChart {
 			}
 		}
 
-		// Military - Verify which actions consume the die
+		// Verify which actions consume the die
 		if (chartResult.equals(ConstantUtil.getSavemusterdieforlast())
 				|| chartResult.equals(ConstantUtil.getHassaveddie())) {
 			if (chartResult.equals(ConstantUtil.getSavemusterdieforlast())) {

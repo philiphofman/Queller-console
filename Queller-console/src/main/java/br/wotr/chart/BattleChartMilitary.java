@@ -4,7 +4,6 @@ import br.wotr.bot.Main;
 import br.wotr.util.ConstantUtil;
 import br.wotr.util.DiceUtil;
 
-//if it's in this chart, die WILL be used for sure
 public class BattleChartMilitary extends DieChart {
 	int battleAction;
 	int roundOfBattle;
@@ -184,6 +183,7 @@ public class BattleChartMilitary extends DieChart {
 				continue;
 			}
 		}
+		// if in battle always consume the die
 		chartResult = DiceUtil.useDie(dieToUse);
 		return chartResult;
 	}

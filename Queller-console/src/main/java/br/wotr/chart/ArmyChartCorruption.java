@@ -43,7 +43,7 @@ public class ArmyChartCorruption extends DieChart {
 					if (branch == 1) {
 						mu.q("AGGRESSIVE army adjacent to THREAT?");
 						if (Main.yes()) {
-							chartResult = mu.a(ConstantUtil.getAttack());
+							chartResult = ConstantUtil.getAttack();
 							continue;
 						}
 					}
@@ -97,7 +97,7 @@ public class ArmyChartCorruption extends DieChart {
 						mu.q("TARGET not under siege?");
 						if (Main.yes()) {
 							mu.printPriorities(ConstantUtil.getFacct3());
-							chartResult = mu.a(ConstantUtil.getAttack());
+							chartResult = ConstantUtil.getAttack();
 							continue;
 						}
 					}
@@ -180,7 +180,7 @@ public class ArmyChartCorruption extends DieChart {
 					mu.a("Move OR Attack");
 					mu.q("Will it Attack?");
 					if (Main.yes()) {
-						chartResult = mu.a(ConstantUtil.getAttack());
+						chartResult = ConstantUtil.getAttack();
 					} else {
 						numOfMoves++;
 						chartResult = mu.a(ConstantUtil.getMove());
@@ -193,7 +193,7 @@ public class ArmyChartCorruption extends DieChart {
 				mu.q("Have an AGGRESSIVE army?");
 				if (Main.yes()) {
 					mu.printPriorities(ConstantUtil.getFacct9());
-					chartResult = mu.a(ConstantUtil.getAttack());
+					chartResult = ConstantUtil.getAttack();
 					continue;
 				}
 				trunk = 10;
@@ -210,7 +210,7 @@ public class ArmyChartCorruption extends DieChart {
 			}
 		}
 
-		// Corruption - Verify which actions consume the die
+		// Verify which actions consume the die
 		if (chartResult.equals(ConstantUtil.getMove()) && numOfMoves > 1) {
 			numOfMoves = 0;
 			chartResult = DiceUtil.useDie(dieToUse);

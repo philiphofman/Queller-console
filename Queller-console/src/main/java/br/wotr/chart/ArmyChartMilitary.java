@@ -40,7 +40,7 @@ public class ArmyChartMilitary extends DieChart {
 					if (branch == 1) {
 						mu.q("AGGRESSIVE army adjacent to THREAT?");
 						if (Main.yes()) {
-							chartResult = mu.a(ConstantUtil.getAttack());
+							chartResult = ConstantUtil.getAttack();
 							continue;
 						}
 						branch = 2;
@@ -120,7 +120,7 @@ public class ArmyChartMilitary extends DieChart {
 							numOfMoves++;
 							chartResult = mu.a(ConstantUtil.getMove());
 						} else {
-							chartResult = mu.a(ConstantUtil.getAttack());
+							chartResult = ConstantUtil.getAttack();
 						}
 						continue;
 					}
@@ -139,7 +139,7 @@ public class ArmyChartMilitary extends DieChart {
 								numOfMoves++;
 								chartResult = mu.a(ConstantUtil.getMove());
 							} else {
-								chartResult = mu.a(ConstantUtil.getAttack());
+								chartResult = ConstantUtil.getAttack();
 							}
 							continue;
 						}
@@ -154,7 +154,7 @@ public class ArmyChartMilitary extends DieChart {
 								numOfMoves++;
 								chartResult = mu.a(ConstantUtil.getMove());
 							} else {
-								chartResult = mu.a(ConstantUtil.getAttack());
+								chartResult = ConstantUtil.getAttack();
 							}
 							continue;
 						}
@@ -167,7 +167,7 @@ public class ArmyChartMilitary extends DieChart {
 				if (Main.yes()) {
 					mu.printPriorities(ConstantUtil.getFacmt7());
 					numOfMoves++;
-					chartResult = mu.a(ConstantUtil.getAttack());
+					chartResult = ConstantUtil.getAttack();
 					continue;
 				}
 				trunk = 8;

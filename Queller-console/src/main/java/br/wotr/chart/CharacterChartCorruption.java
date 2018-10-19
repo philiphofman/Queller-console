@@ -22,7 +22,7 @@ public class CharacterChartCorruption extends DieChart {
 			if (trunk == 1) {
 				mu.q("AGGRESSIVE army against adjacent TARGET AND Has Witch-king or max. possible leadership?");
 				if (Main.yes()) {
-					chartResult = mu.a(ConstantUtil.getAttack());
+					chartResult = ConstantUtil.getAttack();
 					continue;
 				}
 				trunk = 2;
@@ -83,7 +83,7 @@ public class CharacterChartCorruption extends DieChart {
 			}
 		}
 
-		// Corruption - Verify which actions consume the die
+		// Verify which actions consume the die
 		if (chartResult.equals(ConstantUtil.getMoveminionsandnazgul())) {
 			chartResult = DiceUtil.useDie(dieToUse);
 		}
