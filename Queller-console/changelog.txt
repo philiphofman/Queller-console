@@ -1,3 +1,6 @@
+v1.4:
+- Fixed a bug that tried to get a file and didn't find it
+
 v1.3:
 - Fixed missing text for a certain action
 - Fixed typos

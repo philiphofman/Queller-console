@@ -82,7 +82,7 @@ public class Main {
 		boolean gameover = false;
 		int turnCount = 0;
 		mu.welcomeMessage();
-		System.out.println("Playing the base game");
+		mu.m("Playing the base game");
 		// mu.q("PLaying with the Warriors of Middle Earth expansion?");
 		// if (yes()) {
 		// baseGame = false;
@@ -108,6 +108,7 @@ public class Main {
 		} while (!gameover);
 		mu.a("Game over.");
 		sc.close();
+//		FileUtil.closeBW();
 	}
 
 	/**
@@ -125,9 +126,9 @@ public class Main {
 				if (yes()) {
 					mu.q("More than 1 strategy card?");
 					if (yes()) {
-						fu.printPriorities("Phase1-Corruption-T1B1-Yes");
+						mu.printPriorities(ConstantUtil.getFp1ct1b1y());
 					} else {
-						fu.printPriorities("Phase1-Corruption-T1B1-No");
+						mu.printPriorities(ConstantUtil.getFp1ct1b1n());
 					}
 				}
 				if (!baseGame) {
@@ -138,7 +139,7 @@ public class Main {
 			if (trunk == 2) {
 				mu.q("Over 4 Faction cards?");
 				if (yes()) {
-					fu.printPriorities("Phase1-Corruption-T2-Yes");
+					mu.printPriorities(ConstantUtil.getFp1ct2());
 				}
 			}
 			break;
@@ -147,7 +148,7 @@ public class Main {
 			if (trunk == 1) {
 				mu.q("Over 6 cards?");
 				if (yes()) {
-					fu.printPriorities("Phase1-Military-T1-Yes");
+					mu.printPriorities(ConstantUtil.getFp1mt1());
 				}
 				if (!baseGame) {
 					trunk = 2;
@@ -157,7 +158,7 @@ public class Main {
 			if (trunk == 2) {
 				mu.q("Over 4 faction cards?");
 				if (yes()) {
-					fu.printPriorities("Phase1-Military-T2-Yes");
+					mu.printPriorities(ConstantUtil.getFp1mt2());
 				}
 			}
 			break;
@@ -313,12 +314,14 @@ public class Main {
 		mu.a("Roll action dice");
 		mu.q("What did Queller get? ");
 		String spRoll = sc.nextLine();
+		// FileUtil.toLog(spRoll + "\n");
 		spRoll = spRoll.trim().toUpperCase();
 		while (!rollIsOk(spRoll)) {
 			mu.a("Wrong format. Make sure it's something like X X X X X");
 			mu.a("One die result followed by a space, followed by result, etc.");
 			mu.q("What did Queller get? ");
 			spRoll = sc.nextLine();
+			// FileUtil.toLog(spRoll + "\n");
 			spRoll = spRoll.trim().toUpperCase();
 		}
 		DiceUtil.setQuellerRoll(spRoll);
@@ -351,7 +354,7 @@ public class Main {
 				mu.a("Use Muster die set aside for Minion");
 				do {
 					mu.m("Which one?");
-					fu.printPriorities("MusterChart-Minions");
+					mu.printPriorities(ConstantUtil.getFmcminions());
 					mu.q("Number: ");
 					minionNumber = sc.nextInt();
 				} while (!DiceUtil.betweenOneAndThree(minionNumber));
@@ -360,10 +363,10 @@ public class Main {
 					mu.m("Saruman can only go to Orthanc");
 					break;
 				case 2:
-					fu.printPriorities("CharacterChart-Witch-king");
+					mu.printPriorities(ConstantUtil.getFccwitchking());
 					break;
 				case 3:
-					fu.printPriorities("CharacterChart-MouthOfSauron");
+					mu.printPriorities(ConstantUtil.getFccmouth());
 					break;
 				default:
 					break;
@@ -686,7 +689,7 @@ public class Main {
 				mu.a("Use Muster die set aside for Minion");
 				do {
 					mu.m("Which one?");
-					fu.printPriorities("MusterChart-Minions");
+					mu.printPriorities(ConstantUtil.getFmcminions());
 					mu.q("Number: ");
 					minionNumber = sc.nextInt();
 				} while (!DiceUtil.betweenOneAndThree(minionNumber));
@@ -695,10 +698,10 @@ public class Main {
 					mu.m("Saruman can only go to Orthanc");
 					break;
 				case 2:
-					fu.printPriorities("CharacterChart-Witch-king");
+					mu.printPriorities(ConstantUtil.getFccwitchking());
 					break;
 				case 3:
-					fu.printPriorities("CharacterChart-MouthOfSauron");
+					mu.printPriorities(ConstantUtil.getFccmouth());
 					break;
 				default:
 					break;
@@ -863,7 +866,7 @@ public class Main {
 			if (trunk == 5) {
 				mu.q("AGGRESSIVE army adjacent to TARGET OR A MOBILE army adjacent to army which is blocking the route to TARGET?");
 				if (yes()) {
-					fu.printPriorities("Phase5-Military-T5-AnyConditionTrue");
+					mu.printPriorities(ConstantUtil.getFp5mt5any());
 					mu.q("Are any of these true?");
 					if (yes()) {
 						result = performAction(ConstantUtil.getCharacter(), "C", cChart, 1);
@@ -976,7 +979,7 @@ public class Main {
 	 */
 	private static boolean phase6() {
 		mu.printPhaseHeader(6);
-		System.out.println("Military Victory for any side?");
+		mu.m("Military Victory for any side?");
 		if (yes()) {
 			return true;
 		}
@@ -1038,9 +1041,10 @@ public class Main {
 		String s;
 		boolean response = false;
 		do {
-			System.out.print(" (y/n): ");
+			mu.q(" (y/n): ");
 			s = sc.nextLine();
 			s = s.toLowerCase();
+			// FileUtil.toLog(s + "\n");
 		} while (!s.equals("y") && !s.equals("n"));
 		if (s.equals("y")) {
 			response = true;
@@ -1119,6 +1123,7 @@ public class Main {
 					}
 					break;
 				case "Battle":
+					mu.a(action);
 					chartResult = battleChartC.runChart(dieToUse, entry);
 					break;
 				case "Character":
@@ -1169,6 +1174,7 @@ public class Main {
 					}
 					break;
 				case "Battle":
+					mu.a(action);
 					chartResult = battleChartM.runChart(dieToUse, entry);
 					break;
 				case "Character":

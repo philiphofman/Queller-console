@@ -96,7 +96,7 @@ public class ArmyChartCorruption extends DieChart {
 					if (branch == 1) {
 						mu.q("TARGET not under siege?");
 						if (Main.yes()) {
-							fu.printPriorities("ArmyChart-Corruption-T3");
+							mu.printPriorities(ConstantUtil.getFacct3());
 							chartResult = mu.a(ConstantUtil.getAttack());
 							continue;
 						}
@@ -163,7 +163,7 @@ public class ArmyChartCorruption extends DieChart {
 					if (branch == 2) {
 						mu.q("Move would create a new MOBILE army OR increase the troop count of a MOBILE army?");
 						if (Main.yes()) {
-							fu.printPriorities("ArmyChart-Corruption-T7");
+							mu.printPriorities(ConstantUtil.getFacct7());
 							numOfMoves++;
 							chartResult = mu.a(ConstantUtil.getMove());
 							continue;
@@ -176,7 +176,7 @@ public class ArmyChartCorruption extends DieChart {
 			if (trunk == 8) {
 				mu.q("MOBILE army can move OR attack towards closest TARGET?");
 				if (Main.yes()) {
-					fu.printPriorities("ArmyChart-Corruption-T8");
+					mu.printPriorities(ConstantUtil.getFacct8());
 					mu.a("Move OR Attack");
 					mu.q("Will it Attack?");
 					if (Main.yes()) {
@@ -192,7 +192,7 @@ public class ArmyChartCorruption extends DieChart {
 			if (trunk == 9) {
 				mu.q("Have an AGGRESSIVE army?");
 				if (Main.yes()) {
-					fu.printPriorities("ArmyChart-Corruption-T9");
+					mu.printPriorities(ConstantUtil.getFacct9());
 					chartResult = mu.a(ConstantUtil.getAttack());
 					continue;
 				}
@@ -201,7 +201,7 @@ public class ArmyChartCorruption extends DieChart {
 			if (trunk == 10) {
 				mu.q("Have an army on the board?");
 				if (Main.yes()) {
-					fu.printPriorities("ArmyChart-Corruption-T10");
+					mu.printPriorities(ConstantUtil.getFacct10());
 					numOfMoves++;
 					chartResult = mu.a(ConstantUtil.getMove());
 					continue;

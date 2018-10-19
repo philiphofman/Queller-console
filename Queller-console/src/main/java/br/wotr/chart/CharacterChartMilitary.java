@@ -23,21 +23,21 @@ public class CharacterChartMilitary extends DieChart {
 					if (branch == 1) {
 						mu.q("Witch-king not in AGGRESSIVE army?");
 						if (Main.yes()) {
-							fu.printPriorities("Chart-C-C-WKplacement");
+							mu.printPriorities(ConstantUtil.getFccwitchking());
 						}
 						branch = 2;
 					}
 					if (branch == 2) {
 						mu.q("Nazgûl not in an AGGRESSIVE army and can join/create one?");
 						if (Main.yes()) {
-							fu.printPriorities("Chart-C-C-Nazgulplacement");
+							mu.printPriorities(ConstantUtil.getFccnazgul());
 						}
 						branch = 3;
 					}
 					if (branch == 3) {
 						mu.q("Mouth of Sauron not in AGGRESSIVE OR MOBILE army?");
 						if (Main.yes()) {
-							fu.printPriorities("Chart-C-C-MouthofSauronplacement");
+							mu.printPriorities(ConstantUtil.getFccmouth());
 						}
 					}
 					if (branch == 4) {

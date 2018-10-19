@@ -32,9 +32,9 @@ public class EventChartMilitary extends DieChart {
 				}
 				if (Main.yes()) {
 					if (Main.isBaseGame()) {
-						fu.printPriorities("EventChart-Corruption-T1-Yes-Base");
+						mu.printPriorities(ConstantUtil.getFecmt1ybase());
 					} else {
-						fu.printPriorities("EventChart-Corruption-T1-Yes");
+						mu.printPriorities(ConstantUtil.getFecmt1y());
 					}
 					chartResult = mu.a(ConstantUtil.getPlaycard());
 					continue;
@@ -61,7 +61,11 @@ public class EventChartMilitary extends DieChart {
 					if (branch == 2) {
 						mu.q("Holding a playable Strategy Card?");
 						if (Main.yes()) {
-							fu.printPriorities("EventChart-Corruption-T2-B2");
+							if (Main.isBaseGame()) {
+								mu.printPriorities(ConstantUtil.getFecmt2b2ybase());
+							} else {
+								mu.printPriorities(ConstantUtil.getFecmt2b2y());
+							}
 							chartResult = mu.a(ConstantUtil.getPlaycard());
 							continue;
 						}
@@ -99,16 +103,11 @@ public class EventChartMilitary extends DieChart {
 			}
 		}
 
-		// Corruption - Verify which actions consume the die
+		// Military - Verify which actions consume the die
 		if (chartResult.equals(ConstantUtil.getDrawstrategycard())) {
 			mu.q("Over 6 Event cards?");
 			if (Main.yes()) {
-				mu.q("All 6 are Character Cards?");
-				if (Main.yes()) {
-					fu.printPriorities("EventChart-Corruption-T3-B1-Yes");
-				} else {
-					fu.printPriorities("EventChart-Corruption-T3-B1-No");
-				}
+				mu.printPriorities(ConstantUtil.getFecmeventdisc());
 				mu.a(ConstantUtil.getDiscard());
 			} else {
 				mu.a(ConstantUtil.getEnd());

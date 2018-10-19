@@ -46,28 +46,28 @@ public class CharacterChartCorruption extends DieChart {
 				if (branch == 1) {
 					mu.q("Witch-king not in an AGGRESSIVE army and can join/create one?");
 					if (Main.yes()) {
-						fu.printPriorities("CharacterChart-Witch-king");
+						mu.printPriorities(ConstantUtil.getFccwitchking());
 					}
 					branch = 2;
 				}
 				if (branch == 2) {
 					mu.q("Nazgûl not in FSP region and can move there?");
 					if (Main.yes()) {
-						fu.printPriorities("CharacterChart-Nazgul");
+						mu.printPriorities(ConstantUtil.getFccnazgul());
 					}
 					branch = 3;
 				}
 				if (branch == 3) {
 					mu.q("Nazgûl not in an AGGRESSIVE army and can join/create one?");
 					if (Main.yes()) {
-						fu.printPriorities("CharacterChart-Nazgul");
+						mu.printPriorities(ConstantUtil.getFccnazgul());
 					}
 					branch = 4;
 				}
 				if (branch == 4) {
 					mu.q("Mouth of Sauron not in an AGGRESSIVE OR MOBILE army?");
 					if (Main.yes()) {
-						fu.printPriorities("CharacterChart-MouthOfSauron");
+						mu.printPriorities(ConstantUtil.getFccmouth());
 					}
 					branch = 5;
 				}

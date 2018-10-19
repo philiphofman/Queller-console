@@ -1,6 +1,8 @@
 package br.wotr.util;
 
 public class ConstantUtil {
+
+	// action text constants
 	private final static String advancenation = "Advance Nation on Political Track";
 	private final static String army = "Army";
 	private final static String army2 = "Army 2";
@@ -55,6 +57,59 @@ public class ConstantUtil {
 	private final static String troopsfromnationsnotatwar = "Troops from Nations Not At War form rearguard";
 	private final static String used = "used";
 	private final static String usemustersetaside = "Use Muster die set aside for Minion";
+
+	// file name constants. follow formula fxcytz(bw)r for charts
+	// where x is the chart name, y the strategy and z the trunk number, w is the
+	// branch number, if present. r is the response to the question 'y' or 'n',
+	// where there is difference
+	// for phases fpxytzbw, x is the phase number
+	private final static String facct10 = "ArmyChart-Corruption-T10";
+	private final static String facct3 = "ArmyChart-Corruption-T3";
+	private final static String facct7 = "ArmyChart-Corruption-T7";
+	private final static String facct8 = "ArmyChart-Corruption-T8";
+	private final static String facct9 = "ArmyChart-Corruption-T9";
+	private final static String facmt4 = "ArmyChart-Military-T4";
+	private final static String facmt5 = "ArmyChart-Military-T5";
+	private final static String facmt6 = "ArmyChart-Military-T6";
+	private final static String facmt7 = "ArmyChart-Military-T7";
+	private final static String facmt8 = "ArmyChart-Military-T8";
+	private final static String fbct2b2 = "BattleChart-T2B2";
+	private final static String fbct2b3 = "BattleChart-T2B3";
+	private final static String fbct2b456 = "BattleChart-T2B456";
+	private final static String fbct34y = "BattleChart-T3T4-Yes";
+	private final static String fbct4n = "BattleChart-T4-No";
+	private final static String fbct6 = "BattleChart-T6";
+	private final static String fbcremovecasualties = "BattleChart-RemoveCasualties";
+	private final static String fccMouth = "CharacterChart-MouthOfSauron";
+	private final static String fccNazgul = "CharacterChart-Nazgul";
+	private final static String fccWitchking = "CharacterChart-Witch-king";
+	private final static String fecct1ybase = "EventChart-Corruption-T1-Yes-Base";
+	private final static String fecct1y = "EventChart-Corruption-T1-Yes";
+	private final static String fecct2b2 = "EventChart-Corruption-T2B2";
+	private final static String fecct3b1n = "EventChart-Corruption-T3B1-No";
+	private final static String fecct3b1y = "EventChart-Corruption-T3B1-Yes";
+	private final static String fecmeventdisc = "EventChart-Military-EventDiscard";
+	private final static String fecmfactiondisc = "EventChart-Military-FactionDiscard";
+	private final static String fecmt1ybase = "EventChart-Military-T1-Yes-Base";
+	private final static String fecmt1y = "EventChart-Military-T1-Yes";
+	private final static String fecmt2b2ybase = "EventChart-Military-T2B2-Yes-Base";
+	private final static String fecmt2b2y = "EventChart-Military-T2B2-Yes";
+	// TODO file names for faction charts priorities
+	private final static String fmcminions = "MusterChart-Minions";
+	private final static String fmcmusterinsparmy = "MusterChart-MusterInSPArmy";
+	private final static String fmcnationsbase = "MusterChart-Nations-Base";
+	private final static String fmcnations = "MusterChart-Nations";
+	private final static String fmcprisecEN = "MusterChart-PriSecEN";
+	private final static String fmcprisecER = "MusterChart-PriSecER";
+	private final static String fmcprisecNN = "MusterChart-PriSecNN";
+	private final static String fmcprisecRN = "MusterChart-PriSecRN";
+	private final static String fmcsettlementclosest = "MusterChart-SettlementClosestTo";
+	private final static String fp1ct1b1n = "Phase1-Corruption-T1B1-No";
+	private final static String fp1ct1b1y = "Phase1-Corruption-T1B1-Yes";
+	private final static String fp1ct2 = "Phase1-Corruption-T2";
+	private final static String fp1mt1 = "Phase1-Military-T1";
+	private final static String fp1mt2 = "Phase1-Military-T2";
+	private final static String fp5mt5any = "Phase5-Military-T5-AnyConditionTrue";
 
 	public static String getAdvancenation() {
 		return advancenation;
@@ -270,6 +325,190 @@ public class ConstantUtil {
 
 	public static String getUsemustersetaside() {
 		return usemustersetaside;
+	}
+
+	public static String getFacct10() {
+		return facct10;
+	}
+
+	public static String getFacct3() {
+		return facct3;
+	}
+
+	public static String getFacct7() {
+		return facct7;
+	}
+
+	public static String getFacct8() {
+		return facct8;
+	}
+
+	public static String getFacct9() {
+		return facct9;
+	}
+
+	public static String getFacmt4() {
+		return facmt4;
+	}
+
+	public static String getFacmt5() {
+		return facmt5;
+	}
+
+	public static String getFacmt6() {
+		return facmt6;
+	}
+
+	public static String getFacmt7() {
+		return facmt7;
+	}
+
+	public static String getFacmt8() {
+		return facmt8;
+	}
+
+	public static String getFbct2b2() {
+		return fbct2b2;
+	}
+
+	public static String getFbct2b3() {
+		return fbct2b3;
+	}
+
+	public static String getFbct2b456() {
+		return fbct2b456;
+	}
+
+	public static String getFbct34y() {
+		return fbct34y;
+	}
+
+	public static String getFbct4n() {
+		return fbct4n;
+	}
+
+	public static String getFbct6() {
+		return fbct6;
+	}
+
+	public static String getFbcremovecasualties() {
+		return fbcremovecasualties;
+	}
+
+	public static String getFccmouth() {
+		return fccMouth;
+	}
+
+	public static String getFccnazgul() {
+		return fccNazgul;
+	}
+
+	public static String getFccwitchking() {
+		return fccWitchking;
+	}
+
+	public static String getFecct1ybase() {
+		return fecct1ybase;
+	}
+
+	public static String getFecct1y() {
+		return fecct1y;
+	}
+
+	public static String getFecct2b2() {
+		return fecct2b2;
+	}
+
+	public static String getFecct3b1n() {
+		return fecct3b1n;
+	}
+
+	public static String getFecct3b1y() {
+		return fecct3b1y;
+	}
+
+	public static String getFecmeventdisc() {
+		return fecmeventdisc;
+	}
+
+	public static String getFecmfactiondisc() {
+		return fecmfactiondisc;
+	}
+
+	public static String getFecmt1ybase() {
+		return fecmt1ybase;
+	}
+
+	public static String getFecmt1y() {
+		return fecmt1y;
+	}
+
+	public static String getFecmt2b2ybase() {
+		return fecmt2b2ybase;
+	}
+
+	public static String getFecmt2b2y() {
+		return fecmt2b2y;
+	}
+
+	public static String getFmcminions() {
+		return fmcminions;
+	}
+
+	public static String getFmcmusterinsparmy() {
+		return fmcmusterinsparmy;
+	}
+
+	public static String getFmcnationsbase() {
+		return fmcnationsbase;
+	}
+
+	public static String getFmcnations() {
+		return fmcnations;
+	}
+
+	public static String getFmcprisecen() {
+		return fmcprisecEN;
+	}
+
+	public static String getFmcprisecer() {
+		return fmcprisecER;
+	}
+
+	public static String getFmcprisecnn() {
+		return fmcprisecNN;
+	}
+
+	public static String getFmcprisecrn() {
+		return fmcprisecRN;
+	}
+
+	public static String getFmcsettlementclosest() {
+		return fmcsettlementclosest;
+	}
+
+	public static String getFp1ct1b1n() {
+		return fp1ct1b1n;
+	}
+
+	public static String getFp1ct1b1y() {
+		return fp1ct1b1y;
+	}
+
+	public static String getFp1ct2() {
+		return fp1ct2;
+	}
+
+	public static String getFp1mt1() {
+		return fp1mt1;
+	}
+
+	public static String getFp1mt2() {
+		return fp1mt2;
+	}
+
+	public static String getFp5mt5any() {
+		return fp5mt5any;
 	}
 
 }

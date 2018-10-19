@@ -27,7 +27,9 @@ public class MusterChartMilitary extends DieChart {
 			if (trunk == 1) {
 				mu.q("A Stronghold is under THREAT AND Can Muster?");
 				if (Main.yes()) {
-					fu.printPriorities("MusterChart-PriSecER");
+					mu.printPriorities(ConstantUtil.getFmcprisecer());
+					chartResult = mu.a(ConstantUtil.getMuster());
+					continue;
 				}
 				trunk = 2;
 			}
@@ -43,9 +45,9 @@ public class MusterChartMilitary extends DieChart {
 							chartResult = mu.a(ConstantUtil.getSavemusterdieforlast());
 							continue;
 						} else {
-							fu.printPriorities("MusterChart-Minions");
-							fu.printPriorities("CharacterChart-Witch-king");
-							fu.printPriorities("CharacterChart-MouthOfSauron");
+							mu.printPriorities(ConstantUtil.getFmcminions());
+							mu.printPriorities(ConstantUtil.getFccwitchking());
+							mu.printPriorities(ConstantUtil.getFccmouth());
 							chartResult = mu.a(ConstantUtil.getMusterminion());
 							continue;
 						}
@@ -61,9 +63,9 @@ public class MusterChartMilitary extends DieChart {
 				}
 				if (Main.yes()) {
 					if (Main.isBaseGame()) {
-						fu.printPriorities("MusterChart-Nations-Base");
+						mu.printPriorities(ConstantUtil.getFmcnationsbase());
 					} else {
-						fu.printPriorities("MusterChart-Nations");
+						mu.printPriorities(ConstantUtil.getFmcnations());
 					}
 					if (Main.isBaseGame()) {
 						chartResult = mu.a(ConstantUtil.getAdvancenation());
@@ -105,7 +107,7 @@ public class MusterChartMilitary extends DieChart {
 			if (branch == 2) {
 				mu.q("Can create an EXPOSED TARGET?");
 				if (Main.yes()) {
-					fu.printPriorities("MusterChart-PriSecER");
+					mu.printPriorities(ConstantUtil.getFmcprisecer());
 					chartResult = mu.a(ConstantUtil.getMuster());
 					continue;
 				}
@@ -114,20 +116,20 @@ public class MusterChartMilitary extends DieChart {
 			if (branch == 3) {
 				mu.q("Muster possible in region with SP army?");
 				if (Main.yes()) {
-					fu.printPriorities("MusterChart-MusterInSPArmy");
-					fu.printPriorities("MusterChart-PriSecER");
+					mu.printPriorities(ConstantUtil.getFmcmusterinsparmy());
+					mu.printPriorities(ConstantUtil.getFmcprisecer());
 					chartResult = mu.a(ConstantUtil.getMuster());
 					continue;
 				}
-				fu.printPriorities("MusterChart-SettlementClosestTo");
+				mu.printPriorities(ConstantUtil.getFmcsettlementclosest());
 				branch = 4;
 			}
 			if (branch == 4) {
 				mu.q("Have less than 6 Nazgûl?");
 				if (Main.yes()) {
-					fu.printPriorities("MusterChart-PriSecEN");
+					mu.printPriorities(ConstantUtil.getFmcprisecen());
 				} else {
-					fu.printPriorities("MusterChart-PriSecNN");
+					mu.printPriorities(ConstantUtil.getFmcprisecnn());
 				}
 				chartResult = mu.a(ConstantUtil.getMuster());
 				continue;

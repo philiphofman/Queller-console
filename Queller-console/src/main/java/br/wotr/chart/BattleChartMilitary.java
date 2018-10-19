@@ -48,20 +48,20 @@ public class BattleChartMilitary extends DieChart {
 						}
 					}
 					if (branch == 2) {
-						mu.q("Holding a playable Character card?");
+						mu.q("Holding a playable Character Card?");
 						if (Main.yes()) {
-							fu.printPriorities("BattleChart-Corruption-B2-Yes");
+							mu.printPriorities(ConstantUtil.getFbct2b2());
 							battleAction = 1;
+							branch = 0;
 						} else {
 							battleAction = 2;
+							branch = 0;
 						}
-						branch = 0;
-
 					}
 					if (branch == 3) {
 						mu.q("Army has Witch-king AND It's 1st Round?");
 						if (Main.yes()) {
-							fu.printPriorities("BattleChart-Corruption-B3-Yes");
+							mu.printPriorities(ConstantUtil.getFbct2b3());
 							battleAction = 1;
 							branch = 0;
 						} else {
@@ -71,7 +71,7 @@ public class BattleChartMilitary extends DieChart {
 					if (branch == 4) {
 						mu.q("SP is laying siege?");
 						if (Main.yes()) {
-							fu.printPriorities("BattleChart-Corruption-B3,4,5-Yes");
+							mu.printPriorities(ConstantUtil.getFbct2b456());
 							battleAction = 1;
 							branch = 0;
 						} else {
@@ -79,11 +79,11 @@ public class BattleChartMilitary extends DieChart {
 						}
 					}
 					if (branch == 5) {
-						mu.q("Over 4 event cards?");
+						mu.q("Over 4 Event cards?");
 						if (Main.yes()) {
-							fu.printPriorities("BattleChart-Corruption-B3,4,5-Yes");
-							branch = 0;
+							mu.printPriorities(ConstantUtil.getFbct2b456());
 							battleAction = 1;
+							branch = 0;
 						} else {
 							branch = 6;
 						}
@@ -91,21 +91,22 @@ public class BattleChartMilitary extends DieChart {
 					if (branch == 6) {
 						mu.q("Holding playable Call to Battle card?");
 						if (Main.yes()) {
-							fu.printPriorities("BattleChart-Corruption-B3,4,5-Yes");
+							mu.printPriorities(ConstantUtil.getFbct2b456());
 							battleAction = 1;
+							branch = 0;
 						} else {
 							battleAction = 2;
+							branch = 0;
 						}
-						branch = 0;
 					}
 				} else {
 					trunk = 3;
 				}
 			}
 			if (trunk == 3) {
-				mu.q("Besieged OR Battling in Stronghold region?");
+				mu.q("Besieged OR Battling in Stronghold?");
 				if (Main.yes()) {
-					fu.printPriorities("BattleChart-Corruption-T3-T4-Yes");
+					mu.printPriorities(ConstantUtil.getFbct34y());
 					battleAction = 1;
 				} else {
 					trunk = 4;
@@ -114,10 +115,10 @@ public class BattleChartMilitary extends DieChart {
 			if (trunk == 4) {
 				mu.q("Round 1 of combat?");
 				if (Main.yes()) {
-					fu.printPriorities("BattleChart-Corruption-T3-T4-Yes");
+					mu.printPriorities(ConstantUtil.getFbct34y());
 					battleAction = 1;
 				} else {
-					fu.printPriorities("BattleChart-Corruption-T4-No");
+					mu.printPriorities(ConstantUtil.getFbct4n());
 					mu.a(ConstantUtil.getRetreat());
 					battleOver = true;
 					continue;
@@ -133,7 +134,7 @@ public class BattleChartMilitary extends DieChart {
 				mu.a("Combat roll");
 				mu.a("Leader re-roll");
 				mu.a("Remove casualties");
-				fu.printPriorities("Chart-C-B-RemoveCasualties");
+				mu.printPriorities(ConstantUtil.getFbcremovecasualties());
 				trunk = 5;
 			}
 			if (trunk == 5) {
@@ -172,7 +173,7 @@ public class BattleChartMilitary extends DieChart {
 				}
 			}
 			if (trunk == 6) {
-				fu.printPriorities("BattleChart-Corruption-T6");
+				mu.printPriorities(ConstantUtil.getFbct6());
 				mu.q("Any of these are true?");
 				if (Main.yes()) {
 					mu.a(ConstantUtil.getMoveintoregion());

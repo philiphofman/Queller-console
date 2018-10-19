@@ -1,0 +1,24 @@
+*** Insert String "and not in second move" in trunks in Army charts.
+Holding playable Army Strategy Card? (y/n): n
+
+*** probably because of sc.nextInt()
+Military Victory for any side?
+ (y/n):  (y/n): n
+
+*** ATTACK ATTACK
+--------------------------------
+| Phase 5) - Action Resolution |
+--------------------------------
+Current strategy: Military
+Queller pool: [H]
+Saved:      [M]
+Discarded:  [A, C]
+SP under THREAT or FP EXPOSED? (y/n): y
+AGGRESSIVE army adjacent to THREAT? (y/n): n
+Move will create AGGRESSIVE army adjacent to THREAT? (y/
+THREAT exists? (y/n): y
+AGGRESSIVE army adjacent to THREAT? (y/n): y
+>>> Attack <<<
+>>> Attack <<<
+>>> Nations not At War form Rearguard <<<
+SP defending Stronghold region not under siege? (y/n):

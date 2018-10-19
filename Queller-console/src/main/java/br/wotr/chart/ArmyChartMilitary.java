@@ -102,7 +102,7 @@ public class ArmyChartMilitary extends DieChart {
 				if (Main.yes()) {
 					mu.q("At least one FP Nation is PASSIVE AND There is an SP army on the route from Barad-dûr to Woodland Realm?");
 					if (Main.yes()) {
-						fu.printPriorities("ArmyChart-Military-T4");
+						mu.printPriorities(ConstantUtil.getFacmt4());
 						mu.a(ConstantUtil.getMovetowardswoodlandrealm());
 						chartResult = ConstantUtil.getMove();
 					}
@@ -114,7 +114,7 @@ public class ArmyChartMilitary extends DieChart {
 				if (Main.yes()) {
 					mu.q("TARGET is in active Nation?");
 					if (Main.yes()) {
-						fu.printPriorities("ArmyChart-Military-T5");
+						mu.printPriorities(ConstantUtil.getFacmt5());
 						mu.q("Will it Move?");
 						if (Main.yes()) {
 							numOfMoves++;
@@ -148,7 +148,7 @@ public class ArmyChartMilitary extends DieChart {
 					if (branch == 2) {
 						mu.q("Move would create a new MOBILE army OR increase the troop count of a MOBILE army?");
 						if (Main.yes()) {
-							fu.printPriorities("ArmyChart-Military-T6");
+							mu.printPriorities(ConstantUtil.getFacmt6());
 							mu.q("Will it Move?");
 							if (Main.yes()) {
 								numOfMoves++;
@@ -165,7 +165,7 @@ public class ArmyChartMilitary extends DieChart {
 			if (trunk == 7) {
 				mu.q("Have an AGGRESSIVE army?");
 				if (Main.yes()) {
-					fu.printPriorities("ArmyChart-Military-T7");
+					mu.printPriorities(ConstantUtil.getFacmt7());
 					numOfMoves++;
 					chartResult = mu.a(ConstantUtil.getAttack());
 					continue;
@@ -175,7 +175,7 @@ public class ArmyChartMilitary extends DieChart {
 			if (trunk == 8) {
 				mu.q("Have an army on the board?");
 				if (Main.yes()) {
-					fu.printPriorities("ArmyChart-Military-T8");
+					mu.printPriorities(ConstantUtil.getFacmt8());
 				}
 				chartResult = mu.a(ConstantUtil.getContinuedieselection());
 			}

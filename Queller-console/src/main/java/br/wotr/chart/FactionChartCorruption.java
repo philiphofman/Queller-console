@@ -26,7 +26,7 @@ public class FactionChartCorruption extends DieChart {
 			trunk = 5;
 		}
 		if (entryPoint == 4) {
-			fu.printPriorities("Chart-C-F-PriorityRecruit");
+			mu.printPriorities("Chart-C-F-PriorityRecruit");
 			trunk = 7;
 		}
 
@@ -35,7 +35,7 @@ public class FactionChartCorruption extends DieChart {
 			if (trunk == 1) {
 				mu.q("Holding playable Faction Card");
 				if (Main.yes()) {
-					fu.printPriorities("Chart-C-F-PriorityPlayableFactionCard");
+					mu.printPriorities("Chart-C-F-PriorityPlayableFactionCard");
 					chartResult = mu.a(ConstantUtil.getPlayarmymustercard());
 					continue;
 				}
@@ -46,7 +46,7 @@ public class FactionChartCorruption extends DieChart {
 				if (Main.yes()) {
 					mu.q("One or more Corsairs could move to a siege?");
 					if (Main.yes()) {
-						fu.printPriorities("Chart-C-F-T2-DestinationPriority");
+						mu.printPriorities("Chart-C-F-T2-DestinationPriority");
 						// TODO K - 2 Moves for Factions too?
 						chartResult = mu.a(ConstantUtil.getMove());
 						continue;
@@ -67,7 +67,7 @@ public class FactionChartCorruption extends DieChart {
 			if (trunk == 5) {
 				mu.q("Faction figure in FSP region?");
 				if (Main.yes()) {
-					fu.printPriorities("Chart-C-F-T5-Y-DestinationPriority");
+					mu.printPriorities("Chart-C-F-T5-Y-DestinationPriority");
 					chartResult = mu.a(ConstantUtil.getMove());
 					continue;
 				}
@@ -76,9 +76,9 @@ public class FactionChartCorruption extends DieChart {
 			if (trunk == 6) {
 				mu.q("FSP in a Stronghold OR Out To Sea?");
 				if (Main.yes()) {
-					fu.printPriorities("Chart-C-F-T6-Y-DestinationPriority");
+					mu.printPriorities("Chart-C-F-T6-Y-DestinationPriority");
 				} else {
-					fu.printPriorities("Chart-C-F-T6-N-DestinationPriority");
+					mu.printPriorities("Chart-C-F-T6-N-DestinationPriority");
 				}
 				chartResult = mu.a(ConstantUtil.getMove());
 				continue;
@@ -98,7 +98,7 @@ public class FactionChartCorruption extends DieChart {
 		if (chartResult.equals(ConstantUtil.getDrawfactioncard())) {
 			mu.q("Over 4 Faction Cards?");
 			if (Main.yes()) {
-				fu.printPriorities("Chart-C-F-DiscardPriority");
+				mu.printPriorities("Chart-C-F-DiscardPriority");
 				mu.a(ConstantUtil.getDiscard());
 			}
 			mu.a(ConstantUtil.getEnd());

@@ -8,10 +8,10 @@ import java.util.Map.Entry;
 import java.util.Random;
 
 public class DiceUtil {
-	// change to list char?
 	static List<String> quellerDicePool = new ArrayList<String>();
 	static List<String> quellerDiceSaved = new ArrayList<String>();
 	static List<String> quellerDiceDiscarded = new ArrayList<String>();
+	static MessageUtil mu = new MessageUtil();
 
 	public static void addDie(String die) {
 		quellerDicePool.add(die);
@@ -89,7 +89,7 @@ public class DiceUtil {
 	}
 
 	public static String useDie(String die) {
-		System.out.println("Using " + die + " die");
+		mu.m("Using " + die + " die");
 		removeDie(die);
 		return ConstantUtil.getUsed();
 	}

@@ -26,7 +26,7 @@ public class FactionChartMilitary extends DieChart {
 			trunk = 5;
 		}
 		if (entryPoint == 4) {
-			fu.printPriorities("FactionChartM-EP4");
+			mu.printPriorities("FactionChartM-EP4");
 			trunk = 7;
 		}
 
@@ -35,7 +35,7 @@ public class FactionChartMilitary extends DieChart {
 			if (trunk == 1) {
 				mu.q("Holding playable Faction card?");
 				if (Main.yes()) {
-					fu.printPriorities("FactionChartM-T1");
+					mu.printPriorities("FactionChartM-T1");
 					chartResult = mu.a(ConstantUtil.getPlayarmymustercard());
 					continue;
 				}
@@ -46,7 +46,7 @@ public class FactionChartMilitary extends DieChart {
 				if (Main.yes()) {
 					mu.q("One or more Corsairs could move to a siege?");
 					if (Main.yes()) {
-						fu.printPriorities("FactionChartM-T2");
+						mu.printPriorities("FactionChartM-T2");
 						chartResult = mu.a(ConstantUtil.getMove());
 						continue;
 					}
@@ -66,7 +66,7 @@ public class FactionChartMilitary extends DieChart {
 			if (trunk == 5) {
 				mu.q("Faction figure in FSP region?");
 				if (Main.yes()) {
-					fu.printPriorities("FactionChartM-T5");
+					mu.printPriorities("FactionChartM-T5");
 					chartResult = mu.a(ConstantUtil.getMove());
 					continue;
 				}
@@ -75,10 +75,10 @@ public class FactionChartMilitary extends DieChart {
 			if (trunk == 6) {
 				mu.q("FSP in a Stronghold OR Out to sea?");
 				if (Main.yes()) {
-					fu.printPriorities("FactionChartM-T6Y");
+					mu.printPriorities("FactionChartM-T6Y");
 
 				} else {
-					fu.printPriorities("FactionChartM-T6N");
+					mu.printPriorities("FactionChartM-T6N");
 				}
 				chartResult = mu.a(ConstantUtil.getMove());
 				continue;
@@ -98,7 +98,7 @@ public class FactionChartMilitary extends DieChart {
 		if (chartResult.equals(ConstantUtil.getDrawfactioncard())) {
 			mu.q("Over 4 Faction Cards?");
 			if (Main.yes()) {
-				fu.printPriorities("Chart-C-F-DiscardPriority");
+				mu.printPriorities("Chart-C-F-DiscardPriority");
 				mu.a(ConstantUtil.getDiscard());
 			}
 			mu.a(ConstantUtil.getEnd());

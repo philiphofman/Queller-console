@@ -32,9 +32,9 @@ public class EventChartCorruption extends DieChart {
 				}
 				if (Main.yes()) {
 					if (Main.isBaseGame()) {
-						fu.printPriorities("EventChart-Corruption-T1-Yes-Base");
+						mu.printPriorities(ConstantUtil.getFecct1ybase());
 					} else {
-						fu.printPriorities("EventChart-Corruption-T1-Yes");
+						mu.printPriorities(ConstantUtil.getFecct1y());
 					}
 					chartResult = mu.a(ConstantUtil.getPlaycard());
 					continue;
@@ -60,7 +60,7 @@ public class EventChartCorruption extends DieChart {
 					if (branch == 2) {
 						mu.q("Holding a playable Strategy Card?");
 						if (Main.yes()) {
-							fu.printPriorities("EventChart-Corruption-T2-B2");
+							mu.printPriorities(ConstantUtil.getFecct2b2());
 							chartResult = mu.a(ConstantUtil.getPlaycard());
 							continue;
 						}
@@ -104,9 +104,9 @@ public class EventChartCorruption extends DieChart {
 			if (Main.yes()) {
 				mu.q("All 6 are Character Cards?");
 				if (Main.yes()) {
-					fu.printPriorities("EventChart-Corruption-T3-B1-Yes");
+					mu.printPriorities(ConstantUtil.getFecct3b1y());
 				} else {
-					fu.printPriorities("EventChart-Corruption-T3-B1-No");
+					mu.printPriorities(ConstantUtil.getFecct3b1n());
 				}
 				mu.a(ConstantUtil.getDiscard());
 			} else {
