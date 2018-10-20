@@ -104,7 +104,9 @@ public class ArmyChartMilitary extends DieChart {
 					if (Main.yes()) {
 						mu.printPriorities(ConstantUtil.getFacmt4());
 						mu.a(ConstantUtil.getMovetowardswoodlandrealm());
+						numOfMoves++;
 						chartResult = ConstantUtil.getMove();
+						continue;
 					}
 				}
 				trunk = 5;

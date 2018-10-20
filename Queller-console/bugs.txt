@@ -1,8 +1,8 @@
 *** Insert String "and not in second move" in trunks in Army charts.
 Holding playable Army Strategy Card? (y/n): n
 
-*** probably because of sc.nextInt()
+*** probably because of scanner's nextInt() method
 Military Victory for any side?
  (y/n):  (y/n): n
 
-*** imeplement error log
+*** implement error log
